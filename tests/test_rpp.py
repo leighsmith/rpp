@@ -142,10 +142,11 @@ def test_dumps():
 @pytest.mark.parametrize('filename', [
     'empty.RPP',
     'vst.RPP',
+    # 'with_empty_lines.RPP',  # left out ATM, due to empty lines / indentations
 ])
 def test_conversion(filename):
     DIR = path.dirname(__file__)
-    with open(path.join(DIR, 'data', filename)) as fp:
+    with open(path.join(DIR, 'data', filename), 'rU') as fp:
         raw_proj = fp.read()
 
     # Allow some differences
